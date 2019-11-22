@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="CombainedElementsLesson.TradeTable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CombainedElementsLesson"
+        mc:Ignorable="d"
+        d:DesignHeight="400" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="131*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="priceHistoryDg" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="100" Header="Дата" Binding="{Binding Date}"/>
+                <DataGridTextColumn MinWidth="100" Header="Price($)" Binding="{Binding Price}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <ComboBox Name="companiesCB" Grid.Column="0" Margin="0,173,0,0" Grid.RowSpan="4"/>
+        <Button Content="Refresh" Name="updateBtn" Grid.Column="1" Grid.Row="2" Click="updateBtn"/>
+    </Grid>
+</UserControl>
